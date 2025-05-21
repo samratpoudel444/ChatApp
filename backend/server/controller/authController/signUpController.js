@@ -10,12 +10,10 @@ async function signUpUsers(req, res, next) {
     const id = uuidV4();
     const { firstName, lastName, email, password } = req.body;
 
-    // Validation for required fields
     if (!firstName || !lastName || !email || !password) {
       return next({ code: 400, message: "Please provide the necessary data" });
     }
 
-    // ✅ FIX: Email regex was a string. It should be a RegExp object
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return next({
@@ -24,14 +22,13 @@ async function signUpUsers(req, res, next) {
       });
     }
 
-    // Check if user already exists
     const query = `SELECT email FROM UserTables WHERE email = :email`;
     const [checkIfUsersExist] = await sequelize.query(query, {
       raw: true,
       replacements: { email },
     });
 
-    if (checkIfUsersExist.length > 0) {
+    if ( checkIfUsersExist.length > 0) {
       return next({
         code: 409,
         message: "Provided email already exists",

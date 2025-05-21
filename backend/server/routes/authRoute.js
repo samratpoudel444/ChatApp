@@ -3,7 +3,9 @@ const {
   signUpUsers,
 } = require("../controller/authController/signUpController");
 const { signInUser } = require("../controller/authController/signInUsers");
+const { authMiddleware } = require("../middleware/authMiddleware");
 const authRouter = express.Router();
+
 
 authRouter.route("/signUpUser").post(signUpUsers);
 
