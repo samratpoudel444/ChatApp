@@ -2,14 +2,19 @@ const sequelize = require("../../database/config/dbConnection");
 
 const showAllRequest = async (req, res, next) => {
   try {
-    const userId = ``;
-    const query = `select a.senderId, b.firstName, b.lastName, b.email, from usertables as a and 
-    friendRequestTables as b on a.id = b.senderId where recieverId= :userId;`;
+    const recieverId = req.user.data.id;
+    const status= "pending"
+    const query = `SELECT b.senderId, a.firstName, a.lastName, a.email
+FROM userTables AS a
+JOIN friendRequestTables AS b ON a.id = b.senderId
+WHERE b.recieverId = :recieverId and b.status=:status
+`;
     const [getAllRequest, __]= await sequelize.query(query,
         {
             raw: true,
             replacements:{
-                userId
+                recieverId,
+                status
             }
   }  
 

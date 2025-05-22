@@ -30,7 +30,10 @@ module.exports = {
   });
   },
   async down(queryInterface, Sequelize) {
-     await queryInterface.removeConstraint("messages", "fk_senders");
-     await queryInterface.removeConstraint("messages", "fk_reciever");
+     await queryInterface.removeConstraint("friendRequestTables", "fk_senders");
+     await queryInterface.removeConstraint(
+       "friendRequestTables",
+       "fk_reciever"
+     );
   }
 };

@@ -6,7 +6,7 @@ module.exports = {
     await queryInterface.addConstraint("messageTables", {
       fields: ["senderId"],
       type: "foreign key",
-      name: "fk_messages_senders",
+      name: "fk_messages_sender",
       references: {
         table: "UserTables",
         field: "id",
@@ -31,7 +31,8 @@ module.exports = {
 
   async down(queryInterface, Sequelize) {
 
-    await queryInterface.removeConstraint("messages", "fk_messages_sender");
-    await queryInterface.removeConstraint("messages", "fk_messages_receiver");
+    await queryInterface.removeConstraint("messageTables", "fk_messages_sender");
+    await queryInterface.removeConstraint( "messageTables","fk_messages_receiver"
+    );
   },
 };
