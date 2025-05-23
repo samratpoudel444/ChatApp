@@ -2,7 +2,7 @@ const { Server } = require("socket.io");
 const http = require("http");
 const { userConnection } = require("../controller/messageController.js/userConnection");
 const express= require('express');
-const app= express()
+const app= express();
 
 
  const server= http.createServer(app);
@@ -17,4 +17,4 @@ const io = new Server(server, {
 userConnection(io)
 
 
-module.exports= {io, server}
+module.exports= {io, server, app}

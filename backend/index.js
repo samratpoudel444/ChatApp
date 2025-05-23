@@ -5,15 +5,14 @@ const sequelize = require("./server/database/config/dbConnection");
 const { errorHandler } = require("./server/middleware/errorMiddleware");
 const cors= require("cors");
 const userRouter = require("./server/routes/userRoute");
-const { server, io } = require("./server/helpers/socketIoUser");
+const { server, io, app } = require("./server/helpers/socketIoUser");
+
 
 
 
 
 dotenv.config();
 
-
-const app= express();
 const PORT= 3000
 
 app.use(

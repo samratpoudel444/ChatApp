@@ -1,0 +1,48 @@
+.messages {
+  position: fixed;       /* Fix on screen */
+  left: 280px;           /* 280px from left */
+  top: 100px;            /* 100px from top */
+  bottom: 100px;         /* 100px from bottom */
+  width: 300px;          /* You can adjust width */
+  background: #f9f9f9;   /* Light background */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  overflow-y: auto;      /* Scroll vertically if needed */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+  z-index: 1000;         /* On top of other elements */
+}
+
+.msg {
+  margin-bottom: 15px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  max-width: 80%;
+  word-wrap: break-word;
+  position: relative;
+  font-size: 14px;
+}
+
+/* Messages sent by "me" - align right and different bg */
+.me {
+  background-color: #d1e7dd; /* light green */
+  margin-left: auto;
+  text-align: right;
+}
+
+/* Messages sent by friend - align left and different bg */
+.friend {
+  background-color: #f8d7da; /* light red/pink */
+  margin-right: auto;
+  text-align: left;
+}
+
+/* Timestamp styling */
+.timestamp {
+  font-size: 10px;
+  color: #666;
+  position: absolute;
+  bottom: -16px;
+  right: 8px;
+}

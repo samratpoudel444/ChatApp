@@ -1,0 +1,35 @@
+.send-message {
+  position: fixed;
+  bottom: 0;
+  left: 280px;
+  width: 80%;
+  display: flex;
+  gap: 10px;
+  background-color: #f1f1f1;
+  padding: 10px 20px;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.send-message input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.send-message button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.send-message button:hover {
+  background-color: #005ccc;
+}

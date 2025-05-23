@@ -1,14 +1,16 @@
-import "./App.css";
-import SignInUser from "./components/SignInUsers";
-import SignUp from "./components/SignUp";
+import React from "react";
+import GetAllFriends from "./components/GetAllFriends";
+import SendMessage from "./components/SendMessages";
+import UserNavBar from "./components/UserNavBar";
+
 
 function App() {
   return (
-    <>
-
-      {/* <SignUp /> */}
-      <SignInUser/>
-    </>
+    <div style={{ display: "flex" }}>
+      <UserNavBar />
+      <GetAllFriends />
+      <SendMessage />
+    </div>
   );
 }
 
