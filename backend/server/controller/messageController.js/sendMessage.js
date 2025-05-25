@@ -1,4 +1,5 @@
-const { io } = require("../../helpers/socketIoUser");
+import { io } from "../../helpers/socketIoUser";
+
 
 async function sendMessage(req, res, next)
 {

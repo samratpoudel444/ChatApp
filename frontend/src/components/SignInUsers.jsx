@@ -1,6 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -16,6 +17,7 @@ const SignIn= async(userData)=>
 
 const SignInUser= ()=>
 {
+  const navigate = useNavigate();
     const[email, setEmail]= useState("");
     const[password, setPassword]= useState("");
 
@@ -23,8 +25,9 @@ const SignInUser= ()=>
       mutationFn: SignIn,
       onSuccess: (data)=>
         {
-            console.log(data.message)
+            localStorage.setItem('token', data.token)
             toast.success(data.message)
+            navigate(`/chatPage`)
         },
     onError:(err)=>
     {

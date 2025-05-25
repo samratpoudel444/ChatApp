@@ -3,11 +3,13 @@ import { useQueryClient, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { io } from "socket.io-client";
 import "/Users/samrat/Desktop/ChatApp/frontend/src/message.css";
+import axiosInstance from "./utils/apiClient";
 
-const socket = io("http://localhost:3000");
+
+const socket = io("http://localhost:4000");
 
 const fetchMessages = async (senderId) => {
-  const res = await axios.get(
+  const res = await axiosInstance.get(
     `http://localhost:3000/api/v1/messages/${senderId}`,
     {
       withCredentials: true,

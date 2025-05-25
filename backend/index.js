@@ -6,7 +6,7 @@ const { errorHandler } = require("./server/middleware/errorMiddleware");
 const cors= require("cors");
 const userRouter = require("./server/routes/userRoute");
 const { server, io, app } = require("./server/helpers/socketIoUser");
-
+const { userConnection } = require("./server/controller/userController.js/userConnection");
 
 
 
@@ -23,16 +23,17 @@ app.use(
 );
 app.use(express.json())
 
+
 app.use('/api/v1', authRouter);
 app.use("/api/v1", userRouter);
 
 app.use(errorHandler)
 
-
+userConnection(io);
 
 
 sequelize.authenticate().then(() => {
-  server.listen(PORT, () => {
+  app.listen(PORT, () => {
     console.log(`Server Started on port ${PORT}`);
   });
 });

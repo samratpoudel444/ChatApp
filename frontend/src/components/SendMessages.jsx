@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import'/Users/samrat/Desktop/ChatApp/frontend/src/send.css';
+import axiosInstance from "./utils/apiClient";
 
 const SendMessage = ({ receiverId }) => {
   const [message, setMessage] = useState("");
@@ -10,7 +11,7 @@ const SendMessage = ({ receiverId }) => {
     if (!message.trim()) return;
 
     try {
-      await axios.post(
+      await axiosInstance.post(
         "http://localhost:3000/api/v1/messages/send",
         {
           receiverId,

@@ -3,6 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; 
+import { useNavigate } from "react-router-dom";
 
 const signUpUsers = async (userData) => {
   const response = await axios.post(
@@ -13,6 +14,8 @@ const signUpUsers = async (userData) => {
 };
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,6 +25,7 @@ const SignUp = () => {
     mutationFn: signUpUsers,
     onSuccess: (data) => {
       toast.success(data.message || "Signup successful!");
+      navigate(`/signInUser`);
     },
     onError: (err) => {
       toast.error(

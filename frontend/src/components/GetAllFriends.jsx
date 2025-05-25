@@ -4,9 +4,11 @@ import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "/Users/samrat/Desktop/ChatApp/frontend/src/App.css";
+import axiosInstance from "./utils/apiClient";
+
 
 const fetchUsers = async () => {
-  const response = await axios.get(
+  const response = await axiosInstance.get(
     "http://localhost:3000/api/v1/showAllFriends"
   );
   return response.data;
